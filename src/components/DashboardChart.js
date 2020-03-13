@@ -1,50 +1,30 @@
 import React, { Component } from "react";
 // import "../App.css"
 import { Bar } from "react-chartjs-2";
-import data from "../data/data";
+import FilteredData from "../data/FilteredData";
+import ratings from "../data/data";
+// import { AverageLevelAssignment } from "../data/data";
 
-// data=[
-//   {
-//     id: 1,
-//     name: "Evelyn",
-//     assignment: "SCRUM",
-//     ratingLevel: 3,
-//     ratingFun: 4
-//   },
-//   {
-//     id: 2,
-//     name: "Evelyn",
-//     assignment: "W1D1-1",
-//     ratingLevel: 3,
-//     ratingFun: 3
-//   },
-//   {
-//     id: 3,
-//     name: "Evelyn",
-//     assignment: "W1D2-1",
-//     ratingLevel: 1,
-//     ratingFun: 3
-//   }]
-
-// assignmentRatingAverage = assignmentRatingAverage.map(avg => ({
-//   assignment: avg.assignment,
-//   ratingLevel: avg.ratingLevel,
-//   ratingFun: avg.ratingFun
-// }));
-
-console.log("dit is mijn data", { calculateAverageLevelForAssignment });
+// console.log("dit is mijn data", { averageLevel });
 
 class DashboardChart extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
+      FilteredData: FilteredData,
+      ratings: ratings,
       chartData: {
-        // labels: this.props.data.assignment.map()
-        labels: ["Aranka", "Evelyn", "Hector", "Floris"],
+        labels: ["W1D1-1", "W1D1-2", "W1D1-3"],
         datasets: [
           {
-            label: "gemiddelde cijfer",
-            data: [5, 3, 6, 7]
+            label: "moeilijk",
+            data: [3, 4, 5],
+            backgroundColor: "#44B4FB"
+          },
+          {
+            label: "Leuk",
+            data: [2, 4, 4],
+            backgroundColor: "#300BF9"
           }
         ]
       }
@@ -56,11 +36,25 @@ class DashboardChart extends Component {
       <div className="chart">
         <Bar
           data={this.state.chartData}
-          // width={100}
-          // height={50}
-          title="Average rating of the assignments"
-          backgroundColor="ffffff"
-          options={{}}
+          //   width={40}
+          //   height={25}
+          options={{
+            title: {
+              display: true,
+              text: "Gemiddelde moeilijkheid per opdracht",
+              fontSize: 25,
+              color: "#white"
+            },
+
+            layout: {
+              padding: {
+                left: 20,
+                right: 20,
+                bottom: 20,
+                top: 20
+              }
+            }
+          }}
         />
       </div>
     );

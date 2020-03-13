@@ -17,7 +17,6 @@ class App extends Component {
         </nav>
         <main>
           <div className="Main">
-            main
             <DashboardChart />
           </div>
         </main>

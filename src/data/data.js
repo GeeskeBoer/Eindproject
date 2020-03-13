@@ -3927,7 +3927,24 @@ const ratings = [
 // level: number,
 // ratingFun: number
 
-// const
+//gemiddelde level van alle studenten voor opdracht W1D2-1
+
+const filteredAssignment = ratings.filter(rating => {
+  return rating.assignment === "W1D2-1";
+});
+console.log(filteredAssignment);
+
+const AverageLevelAssignment =
+  filteredAssignment.reduce((currentTotal, filteredAssignment) => {
+    return filteredAssignment.level + currentTotal;
+  }, 0) / filteredAssignment.length;
+console.log("gemiddelde level", AverageLevelAssignment);
+
+// Totale level van alle assignments (/ratings.length wordt het het gemiddelde)
+// const AverageLevelAssignment = ratings.reduce((currentTotal, ratings) => {
+//   return ratings.level + currentTotal;
+// }, 0);
+// console.log("de data", AverageLevelAssignment);
 
 // const assignmentRatingAverage = data.map(avg => ({
 //   assignment: avg.assignment,
@@ -3935,28 +3952,16 @@ const ratings = [
 //   ratingFun: getRandomRating()}))
 //   console.log(assignmentRatingAverage)
 
-//
-const calculateAverage = arr => arr.reduce((a, b) => a + b, 0) / arr.length;
-
-const calculateAverageLevelForAssignment = (ratings, assignmentName) => {
-  const filteredRatings = ratings.filter(rating => {
-    return rating.assignment === assignmentName;
-  });
-};
-
 // const calculateAverageLevelForAssignment = (ratings, assignmentName) => {
 //   const filteredRatings = ratings.filter(rating => {
 //     return rating.assignment === assignmentName;
 //   });
-//   const filteredLevelRatings = filteredRatings.map(rating => rating.level);
-//   const averageLevel = calculateAverage(filteredLevelRatings);
+// const filteredLevelRatings = filteredRatings.map(rating => rating.level);
+// const averageLevel = calculateAverage(filteredLevelRatings);
 
-//   return averageLevel;
-// };
+// return averageLevel;
 
 // calculateAverageLevelForAssignment();
+// console.log(calculateAverageLevelForAssignment);
 
-// console.log("dit is mijn data", filteredRatings);
-// console.log("level van w1d2", filteredLevelRatings);
-console.log("nieuw gemaakte const", calculateAverageLevelForAssignment);
 export default ratings;
