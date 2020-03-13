@@ -1,0 +1,28 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 75px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: calc(25px + 2vmin);
+  color: white;
+  padding-top: 10px;
+}
+
+.ButtonsName {
+  background-color: white;
+  min-height: 40px;
+  padding-top: 10px;
+  align-items: center;
+  color: whitesmoke;
+}
+
+.Main {
+  background-color: #282c34;
+  color: white;
+  min-height: 500px;
+}
